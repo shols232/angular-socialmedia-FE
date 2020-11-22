@@ -1,0 +1,181 @@
+.widget:last-child {
+    margin-bottom: 0;
+}
+.widget {
+    display: inline-block;
+    position: fixed;
+    width: 100%;
+    margin: 0  18px;
+    // margin-bottom: 18px;
+    background: #fdfdfd;
+    border: 1px solid #ede9e9;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 900px){
+    .widget{
+        margin: 0;
+    }
+}
+
+.widget {
+    float: right;
+    width: 100%;
+}
+
+  .widget-title {
+background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: #424242;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    padding: 20px 20px 10px;
+    position: relative;
+    text-transform: capitalize;
+    width: 100%;
+}
+.widget-title {
+    float: left;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.widget-title::before{
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 20px;
+        position: absolute;
+        width: 20%;
+        background: #088dcd;
+}
+
+#searchDir {
+    padding: 0 20px;
+}
+
+#searchDir .filterinput {
+    border: 1px solid #eaeaea;
+    color: #575757;
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 100%;
+}
+button, input {
+    overflow: visible;
+}
+
+input:focus{
+    outline: 1px solid rgb(150, 38, 150);
+}
+
+#people-list {
+    max-height: 450px;
+    position: relative;
+}
+  .widget > ul {
+    display: inline-block;
+    list-style: outside none none;
+    margin-bottom: 0;
+    padding: 0 25px 20px;
+    width: 100%;
+}
+.ps-container {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    overflow: hidden!important;
+    -ms-overflow-style: none;
+}
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+  .widget li {
+    display: inline-block;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+#people-list figure {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    position: relative;
+}
+figure {
+    margin: 0 0 1rem;
+}
+
+.friendz-meta {
+    display: inline-block;
+    line-height: 17px;
+    padding-left: 10px;
+    vertical-align: middle;
+    width: 74%;
+}
+
+.friendz-meta > a {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+  .widget li i {
+    color: #999;
+    display: inline-block;
+    font-size: 11px;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.friendz-meta > i {
+    color: #999;
+    display: inline-block;
+    font-size: 13px;
+    width: 100%;
+}
+
+#people-list figure img{
+ border-radius: 100%;
+ height:35px;
+ width: 35px;
+}
+
+.ps-container>.ps-scrollbar-x-rail {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: background-color .2s linear,opacity .2s linear;
+    -o-transition: background-color .2s linear,opacity .2s linear;
+    -moz-transition: background-color .2s linear,opacity .2s linear;
+    transition: background-color .2s linear,opacity .2s linear;
+    bottom: 0;
+    height: 15px;
+}
+
+
+.ps-container.ps-active-x>.ps-scrollbar-x-rail, .ps-container.ps-active-y>.ps-scrollbar-y-rail {
+    display: block;
+    background-color: transparent;
+}
+.ps-container>.ps-scrollbar-y-rail {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: background-color .2s linear,opacity .2s linear;
+    -o-transition: background-color .2s linear,opacity .2s linear;
+    -moz-transition: background-color .2s linear,opacity .2s linear;
+    transition: background-color .2s linear,opacity .2s linear;
+    right: 0;
+    width: 15px;
+}
+
+
+

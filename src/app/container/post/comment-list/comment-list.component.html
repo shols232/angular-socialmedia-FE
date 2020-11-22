@@ -1,0 +1,31 @@
+<div class="post-list">
+    <ng-container *ngFor="let comment of comments">
+        <div *ngIf="comment" class="coment-area">
+            <ul class="we-comet">
+                <li>
+                    <div class="comet-avatar">
+                        <img [routerLink]="['/profile', comment.author.username]" 
+                        [src]="bUrl + comment.author.image_url" [alt]="comment.author.username">
+                    </div>
+                    <div class="we-comment">
+                        <div class="coment-head">
+                            <h5><a [routerLink]="['/profile', comment.author.username]" 
+                                [title]="comment.author.username"
+                                >{{comment.author.last_name}} {{ comment.author.first_name }}</a>
+                            </h5>
+                            <span>{{comment.created|date}}</span>
+                            <span style="cursor: pointer;" [routerLink]="['./comment', comment.id]"
+                            class="we-reply" title="Reply"><i class="fa fa-reply"></i></span>
+                        </div>
+                        <p>{{ comment.content }}</p>
+                    </div>
+                    <span *ngIf="comment.replies != undefined && comment.replies > 1">
+                        <a title="" class="showmore underline">show replies</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </ng-container>
+</div>
+
+

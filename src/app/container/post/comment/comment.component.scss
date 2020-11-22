@@ -1,0 +1,232 @@
+.holder{
+    background-color: #fff;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.coment-area {
+    display: inline-block;
+    margin-top: 10px; width: 100%;
+}
+.we-comet {
+    float: left; width: 100%;
+    padding-left: 0; list-style: none;
+    .replies-header{
+        color: #088dcd;
+        margin-left: 20px ;
+        padding-bottom: 6px;
+        width: 30%;
+        border-bottom: #60a8ca 2.1px solid;
+    }
+}
+.we-comet > li {
+    display: inline-block; margin-bottom: 12px;
+    width: 100%;
+}
+dl, ol, ul {
+    margin-top: 0;margin-bottom: 1rem;
+}
+
+.comet-avatar {
+    display: table-cell;
+    max-width: 7.6%;
+    vertical-align: top;
+    width: 7.6%;
+    margin: 0 5px !important;
+    img {
+        border-radius: 100%;
+        max-width: 35px;
+        width: 35px;
+        height: 35px;
+        margin-left: 3px;
+        min-width: 35px;
+    }
+}
+.we-comment {
+    border: 1px solid #ede9e9;
+    display: table-cell; margin-left: 20px;
+    padding: 10px; vertical-align: top;
+    position: relative; width: 65%;
+}
+
+.we-comment::before{
+    border-bottom: 10px solid transparent; border-right: 11px solid #ede9e9;
+    border-top: 10px solid transparent; left: -11px;
+    top: 10px; position: absolute; content: '';
+}
+
+.coment-head {
+    display: inline-block;
+    width: 100%;
+}
+.coment-head > h5 {
+    font-size: 13.5px; font-weight: bold;
+    padding-bottom: 5px; text-transform: capitalize;
+    display: inline-block; margin-bottom: 0; color: #2a2a2a;
+}
+.coment-head > span {
+    color: #999;
+    font-size: 12px;
+    padding-left: 10px;
+    display: inline-block;
+}
+.we-reply{
+    color: #088dcd;
+    text-transform: capitalize;
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.we-comment > p {
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 0;
+    max-width: 100%;
+    margin-top: 5px;
+}
+
+.we-comment::after{
+    border-bottom: 8px solid transparent;
+    border-right: 9px solid #fff;
+    border-top: 8px solid transparent;
+    left: -9px;
+    top: 12px;
+    position: absolute;
+    content: '';
+}
+
+.we-comet > li ul {
+    margin-left: 55px;
+    margin-top: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.we-comet > li ul li {
+    margin-bottom: 10px;
+}
+
+.we-comet li a.showmore {
+    display: table;
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 auto;
+    text-transform: capitalize;
+    // font-weight: 500;
+    color: #088dcd
+    
+}
+
+a.showmore:hover{
+    text-decoration: none;    
+}
+
+a.underline:hover:after{
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    background: #088dcd;
+}
+
+a.underline:after {
+    background: #545454;
+    top: -5px;
+    content: "";
+    height: 1px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    transition: all 0.2s linear 0s;
+}
+
+// replies area
+// .hero {
+//     /* padding: 6.25rem 0px !important; */
+//     margin: 0px !important;
+//   }
+  .cont {
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 0px !important;
+  }
+
+  .search {
+    position: relative;
+    /* right: -60px;
+    top: -40px; */
+    margin-bottom: -40px;
+    border: 2px solid #f4f4f4;	
+    width: 80%;
+    overflow: hidden;
+   }
+ 
+ 
+   .search input[type='text'] {
+    background-color: #fff;
+    line-height: 10px;
+    padding: 15px 30px 10px 10px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Rokkitt', serif;
+    font-size: 14px;
+    margin: 1.2px;
+    color: #8d8d8d;
+    width: inherit;
+    height: inherit;
+    font-weight: 700;
+   }
+ 
+   .search input[type='text']:focus{
+     outline: 1.5px #8d8d8d solid;
+   }
+ 
+   .search button {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    border: none;
+    background-color: transparent;
+    color: #bbbbbb;
+    outline: none;
+    padding: 9px 12px;
+    cursor: pointer;
+    
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   }
+   .search button i {
+    font-size: 20px;
+    line-height: 30px;
+    display: block;
+   }
+
+.cardbox-comments{
+    padding: 10px 5px 10px 10px !important;
+    font-size: 0px;	
+    width: inherit;
+    height: 70px;
+    /* text-align: center;
+    overflow: hidden; */
+    /* display: inline-block; */
+  }
+  .cardbox-comments .comment-avatar img{
+    margin-top: 1px;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+  }
+  .cardbox-comments .comment-body {
+    overflow: auto;
+  }

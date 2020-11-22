@@ -1,0 +1,129 @@
+<div class="row m-0">
+    <div class="col-1 p-0">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="col-10 mx-auto" *ngIf="profile">
+    <form (ngSubmit)="onSubmit(f, native)" #native #f="ngForm">
+        <div class="row">
+            <div class="col-md-4 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <div class="preview text-center">
+                        <img class="rounded-circle preview-img" height="160" width="170" [src]="profile.image">
+                        <div class="browse-button">
+                            <i class="fa fa-pencil-alt"></i>
+                            <input (change)="onFileChanged($event)" #fileInput class="browse-input" 
+                            style="display: block;" type="file" name="image"
+                            id="UploadedFile" />
+                        </div>
+                        <span class="Error"></span>
+                    </div>
+                    <span class="font-weight-bold">{{profile.username}}</span>
+                    <div class="mt-5 text-center">
+                        <button  *ngIf="profileDetails" (click)="toggleProfileDetails()" 
+                        class="btn btn-primary profile-button" type="button"
+                        >General Details <i 
+                        class='bx bx-arrow-back bx-flip-horizontal ml-1' 
+                        style='position:relative; top:0.2em; color:#fff; font-size: 1.3rem;' 
+                        ></i></button>
+                        <button *ngIf="!profileDetails" (click)="toggleProfileDetails()" 
+                        class="btn btn-primary" type="button"
+                        ><i class='bx bx-arrow-back mr-1' 
+                        style='position:relative; top:0.2em; color:#fff; font-size: 1.3rem;'></i>  Profile</button>
+                    </div>
+                    <span> </span>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="p-3 py-5">
+                        <div class="text-center justify-content-between align-items-center mb-3">
+                            <h4>{{profileDetails? 'Profile' : 'General Details'}}</h4>
+                        </div>
+                        <ng-container *ngIf="!profileDetails">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="p-3 py-5">
+                                <div class="d-flex justify-content-between align-items-center experience"><span>Work
+                                        Experience</span><span class="border px-3 p-1 add-experience"><i
+                                            class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                                <div class="col-md-12">
+                                    <label>Hobbies</label>
+                                    <input type="text" name="work_exp" ngModel 
+                                    class="form-control" 
+                                    placeholder="Taking long walks, Jogging at noon" 
+                                    [ngModel]="profile.extra_info">
+                                    <p class="labels">comma seperated hobbies</p>
+                                </div> <br>
+                                <div class="col-md-12">
+                                    <label class="labels">Additional Details</label>
+                                    <input name="extra_info" type="text" class="form-control" 
+                                    placeholder="additional details"
+                                    [ngModel]="">
+                                </div>
+                            </div>
+                        </div>
+                        </ng-container>
+                        <ng-container *ngIf="profileDetails">
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Username:</label>
+                                    <input class="form-control" id="editEmailInput" 
+                                    type="text" name="username" [ngModel]="profile.username"
+                                        required placeholder="Your username" />
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">PhoneNumber</label>
+                                    <input name="phone_number" 
+                                    [ngModel]="profile.phone_number ? profile.phone_number : ''" 
+                                    type="text" class="form-control"
+                                        placeholder="enter phone number">
+                                </div>
+                                <div class="col-md-12 date">
+                                    <label class="labels">Date of birth</label>
+                                    <div class="input-group input-append date" id="datePicker">
+                                        <input name="date_of_birth" type="text" 
+                                        [ngModel]="profile.date_of_birth ? profile.date_of_birth : ''" 
+                                        class="form-control" name="date" />
+                                        <span class="input-group-addon add-on">
+                                            <span style="font-size: 26px; padding: 6px;
+                                                background-color: #EEEEEE;" class="fas fa-calendar-day">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Address</label>
+                                    <input name="address" type="text" 
+                                    class="form-control" placeholder="enter address" 
+                                    [ngModel]="profile.address ? profile.address : ''">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Bio</label>
+                                    <textarea [(ngModel)]="bio" class="form-control" type="text" id="editBioInput" name="bio"
+                                    placeholder="Your Bio"
+                                    >{{bio ? bio : ''}}</textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-3 mb-2">
+                                <div class="col-md-6"><label class="labels">Country</label>
+                                    <select name="country" 
+                                    [ngModel]="profile.country ? profile.country : ''" 
+                                    id="country-select" class="browser-default custom-select">
+                                    </select>
+                                </div>
+                                <!-- <input type="text" class="form-control" placeholder="country" value=""> -->
+                                <div class="col-md-6"><label class="labels">State/Region</label>
+                                    <input type="text" name="state" class="form-control" 
+                                    [ngModel]="profile.state ? profile.state : ''" placeholder="state">
+                                </div>
+                            </div>
+                        </ng-container>
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

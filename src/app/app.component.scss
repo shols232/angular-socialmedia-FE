@@ -1,0 +1,19 @@
+body{
+    margin:0;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #3fb6ee;
+}
+
+a{
+    color: #088dcd;
+}
+
+.user-mention{
+    color:#088dcd !important;
+    font-weight: 600;
+    padding: 0 !important;
+    cursor: pointer;
+  }

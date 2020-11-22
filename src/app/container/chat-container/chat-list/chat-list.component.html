@@ -1,0 +1,100 @@
+<div id="sidepanel">
+    <div id="profile">
+        <div class="wrap">
+            <img id="profile-img" [src]="image_base_url + user.profile_picture" class="online" alt="user" />
+            <p>{{user.last_name}} {{user.first_name}}</p>
+            <div id="status-options">
+                <ul>
+                    <li id="status-online" class="active"><span class="status-circle"></span>
+                        <p>Online</p>
+                    </li>
+                    <li id="status-away"><span class="status-circle"></span>
+                        <p>Away</p>
+                    </li>
+                    <li id="status-busy"><span class="status-circle"></span>
+                        <p>Busy</p>
+                    </li>
+                    <li id="status-offline"><span class="status-circle"></span>
+                        <p>Offline</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="search">
+        <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+        <input type="text" placeholder="Search contacts..." />
+    </div>
+    <div id="contacts">
+        <ul id="contacts-ul">
+            <li class="contact active" (click)="onOpenChat(chat)" *ngFor="let chat of chats">
+                <div class="wrap">
+                    <span class="contact-status busy"></span>
+                    <img class="chatImg" [src]="image_base_url + chat.user.image_url" [alt]="chat.user.username" />
+                    <div class="meta">
+                        <p class="name">{{chat.user.last_name}} {{chat.user.first_name}}</p>
+                        <div class="preview" >
+                            <ng-container *ngIf="chat.last_message_sent.content.length > 0">
+                                {{chat.last_message_sent.sender_username}}: {{ chat.last_message_sent.content }}
+                            </ng-container>
+                            <i *ngIf="chat.last_message_sent.content.length == 0">No mesages yet...</i>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="bottom-bar">
+        <button (click)="basicModal.show(); fetchUsers()" id="addcontact" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+            <i class="fa fa-user-plus fa-fw" aria-hidden="true"></i>
+            <span>Add contact</span>
+        </button>
+        <button id="settings">
+            <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+            <span>Settings</span>
+        </button>
+    </div>
+</div>
+
+
+<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-30 mx-auto" id="myModalLabel">Start a Chat</h4>
+      </div>
+      <div class="modal-body chatlist-modal-body">
+        <div class="frnds">
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active fade show" id="frends">
+                <ul class="nearby-contct">
+                    <li *ngFor="let usr of users">
+                        <div class="nearly-pepls">
+                            <figure>
+                                <a [title]="usr.username">
+                                    <img [src]="image_base_url + usr.image_url" alt="">
+                                </a>
+                            </figure>
+                            <div class="pepl-info">
+                                <h4><a href="" title="">{{usr.last_name}} {{usr.first_name}}</a></h4>
+                                <span>{{usr.bio|slice:15}}</span>
+                                <a style="cursor:pointer" title="" class="add-butn more-action">follow</a>
+                                <a style="cursor:pointer" title="" class="add-butn" (click)="onAddChat(usr.id); basicModal.hide()" data-ripple="">start chat</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>	
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer mx-auto">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+      </div>
+    </div>
+  </div>
+</div>

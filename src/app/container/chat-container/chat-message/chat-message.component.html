@@ -1,0 +1,61 @@
+<div class="content">
+    <!-- {% if room_name_json %} -->
+    <div class="contact-profile">
+        <img [src]="baseImgUrl + chat.user.image_url" [alt]="chat.user.username" />
+        <p>{{chat.user.last_name}} {{chat.user.first_name}}</p>
+        <!-- <img id="backToChat" src="{% static 'back_button.png' %}" 
+      onclick="backToChat()" width="40" height="40" alt="" 
+      style="float: right; cursor: pointer; display: none;" class="mt-3 mr-5"> -->
+        <!-- <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+        <div class="action_menu">
+            <ul>
+                <li><i class="fas fa-user-circle"></i> View profile</li>
+                <li><i class="fas fa-users"></i> Add to close friends</li>
+                <li><i class="fas fa-plus"></i> Add to group</li>
+                <li><i class="fas fa-ban"></i> Block</li>
+            </ul>
+        </div> -->
+    </div>
+    <!-- {% endif %} -->
+    <div class="messages" #content>
+        <ul id="chat-log">
+            <ng-container #messages *ngFor="let msg of messages">
+                <div *ngIf="msg.sender_username != user.username" class="incoming_msg">
+                    <div class="incoming_msg_img">
+                        <img [src]="baseImgUrl + chat.user.image_url" [alt]="chat.user.username">
+                    </div>
+                    <div class="received_msg">
+                      <div class="received_withd_msg">
+                        <p>{{msg.content}}</p>
+                        <span class="time_date"> 11:01 AM    |    June 9</span></div>
+                    </div>
+                  </div>
+                  <div *ngIf="msg.sender_username == user.username" class="outgoing_msg">
+                    <div class="user_msg_img">
+                        <img [src]="baseImgUrl + user.profile_picture" [alt]="user.username">
+                    </div>
+                    <div class="sent_msg">
+                      <p>{{msg.content}}</p>
+                      <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+                  </div>
+            </ng-container>              
+        </ul>
+    </div>
+
+    <div class="message-input">
+        <div class="wrap">
+            <div id="chat-message-input" #mesgDiv dir="auto"
+            (keydown)="$event.keyCode == 13 ? onSendMessage(mesgDiv.innerText, mesgDiv) : ''; 
+                $event.keyCode == 13 ? $event.preventDefault() : '';"
+            contenteditable="true" placeholder="Write your message...">
+            </div>
+            <div>
+                <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+                <button id="chat-message-submit" class="button" 
+                (click)="onSendMessage(mesgDiv.innerText, mesgDiv)">
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

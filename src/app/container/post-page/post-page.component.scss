@@ -1,0 +1,144 @@
+.central-meta.new-pst {
+  position: relative;
+  z-index: 99;
+}
+
+@media screen and (max-width: 640px){
+  .central-meta {
+      padding: 30px 15px;
+  }
+}
+
+.central-meta {
+  background: #fdfdfd none repeat scroll 0 0;
+  border: 1px solid #ede9e9;
+  border-radius: 5px;
+  display: inline-block;
+  width: 80%;
+  margin:0 10% 17px 10%;
+
+  padding: 15px;
+}
+
+
+.new-postbox {
+  display: inline-block;
+  width: 100%;
+}
+
+.new-postbox > figure {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: top;
+  width: 10.4%;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+.newpst-input {
+  display: inline-block;
+  vertical-align: top;
+  width: 85.5%;
+}
+
+@media screen and (max-width: 640px){
+  .newpst-input {
+      width: 83%;
+  }
+}
+
+.newpst-input > form {
+  display: inline-block;
+  width: 100%;
+
+  button{
+    background-color: #088dcd;
+    border: medium none;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 20px;
+    border-radius: 4px; 
+    outline: none;
+  }
+
+  .textar {
+    border: 1px solid #eeeeee;
+    border-radius: 6px 6px 0 0;
+    padding: 10px;
+    width: 100%;
+    border-bottom: 0;
+    resize:none;
+    outline: none;
+  }
+}
+
+.newpst-input textarea {
+  float: left;
+  width: 100%;
+}
+
+
+
+.attachments {
+  border: 1px solid #eee;
+  display: block;
+  padding: 10px;
+  text-align: right;
+  border-top: 0;
+  background: #fff;
+  li{
+    display: inline-block;
+    color: #979595;
+    margin-left: 5px;
+  }
+}
+
+.attachments > ul {
+  list-style: outside none none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.fileContainer {
+  color: #d8d8d8;
+  font-size: 11px;
+  margin: 0 0 0 5px;
+  position: relative;
+  text-transform: capitalize;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.attachments .fileContainer [type="file"] {
+  right: 6px;
+  top: -18px;
+  width: 20px;
+  background-color:#d8d8d8;
+}
+
+.fileContainer [type=file] {
+  cursor: pointer;
+  display: block;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  display: block;
+  color: #ccc;
+}

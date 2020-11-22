@@ -1,0 +1,68 @@
+<div class="cont">
+    <div class="holder">
+        <div class="coment-area" *ngIf="comment">
+            <ul class="we-comet">
+                <h5 class="replies-header">Replies ({{comment.replies.length}})</h5>
+                <li>
+                    <div class="comet-avatar">
+                        <img src="{{bUrl + comment.author.image_url}}" alt="">
+                    </div>
+                    <div class="we-comment">
+                        <div class="coment-head">
+                            <h5><a title=""
+                                >{{comment.author.last_name}} {{comment.author.first_name}}</a></h5>
+                            <span>{{comment.created|date}}</span>
+                            <a class="we-reply" href="#" title="Reply"><i class="fa fa-reply"></i></a>
+                        </div>
+                        <p>{{comment.content}}</p>
+                    </div>
+                    <ul *ngIf="comment.replies.length > 0">
+                        <li>
+                            <div class="comet-avatar">
+                                <img src="images/resources/comet-2.jpg" alt="">
+                            </div>
+                            <div class="we-comment">
+                                <div class="coment-head">
+                                    <h5><a href="time-line.html" title="">alexendra dadrio</a></h5>
+                                    <span>1 month ago</span>
+                                    </div>
+                                <p>yes, really very awesome car i see the features of this car in the official website of <a href="#" title="">#Mercedes-Benz</a> and really impressed :-)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="comet-avatar">
+                                <img src="images/resources/comet-3.jpg" alt="">
+                            </div>
+                            <div class="we-comment">
+                                <div class="coment-head">
+                                    <h5><a href="time-line.html" title="">Olivia</a></h5>
+                                    <span>16 days ago</span>
+                                    </div>
+                                <p>i like lexus cars, lexus cars are most beautiful with the awesome features, but this car is really outstanding than lexus</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-4" *ngIf="comment.replies.length == 0" 
+                    style="text-align: center;color:#8d8d8d">
+                        <i>
+                            No replies yet...
+                        </i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cardbox-comments">
+        <span class="comment-avatar float-left">
+            <a href=""><img class="rounded-circle"
+                [src]="bUrl + user.profile_picture" alt="..."></a>                            
+        </span>
+        <div class="search">
+            <input #commentInp placeholder="reply this comment..." type="text">
+            <button
+            (click)="onReply(commentInp.value); commentInp.value = ''"
+            ><i class="fa fa-camera"></i></button>
+        </div>
+    </div>		  
+</div>
+
