@@ -17,7 +17,7 @@ export class ProfileService{
 
     updateProfile(username: string, form:FormData){
         return this.http
-        .post(environment.backendUrl + '/account/profile?username='+username, form)
+        .post<{message:string, image_url:string}>(environment.backendUrl + '/account/profile?username='+username, form)
     }
 
     toggleFollow(action:string, username:string){

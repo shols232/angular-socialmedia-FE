@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/auth/user.model';
 import { Profile } from '../profile.model';
 import { ProfileService } from '../profile.service';
 
@@ -13,12 +15,15 @@ import { ProfileService } from '../profile.service';
 export class EditUserProfileComponent implements OnInit {
   profile: Profile
   bio: string
+  isLoading = false;
   selectedFile: File;
   profileDetails:boolean = true;
 
   constructor(private route: ActivatedRoute, 
     private profileService: ProfileService, 
-    private authService: AuthService
+    private authService: AuthService,
+    private cookieService: CookieService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -46,6 +51,7 @@ export class EditUserProfileComponent implements OnInit {
   }
 
   onSubmit(form: NgForm, native:HTMLFormElement){
+    this.isLoading = true;
     console.log(form.value)
     let data = new FormData(native)
     if(this.selectedFile){
@@ -53,8 +59,15 @@ export class EditUserProfileComponent implements OnInit {
     }
 
     this.profileService.updateProfile(this.profile.username, data).subscribe(data => {
-      console.log(data)
-    })
+      const user: User = JSON.parse(this.cookieService.get('user'))
+      user.profile_picture = data.image_url
+      this.authService.user.next(user)
+      this.cookieService.set('user', JSON.stringify(user))
+      this.router.navigate(['profile', this.profile.username])
+    }, (error) => {
+        this.isLoading = false;
+        console.log(error)
+    } )
   }
 
 }

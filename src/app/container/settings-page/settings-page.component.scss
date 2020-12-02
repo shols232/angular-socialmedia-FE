@@ -1,0 +1,257 @@
+@media screen and (max-width: 640px){
+    .central-meta {
+        padding: 30px 15px;
+    }    
+}
+
+@media screen and (max-width: 980px){
+    .central-meta {
+        margin: 10px 10px 10px 0;
+        width: 100%;
+    }
+}
+
+.central-meta {
+    background: #fdfdfd none repeat scroll 0 0;
+    border: 1px solid #ede9e9;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 17px;
+    padding: 25px;
+}
+
+.f-title {
+    font-size: 17.5px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #424242;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.f-title::before {
+    bottom: 8px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+    background: #088dcd
+}
+
+p {
+    font-size: 14px;
+    line-height: 26px;
+    color: #8c8b8b;
+}
+
+@media screen and (max-width: 640px){
+    p {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 980px){
+    p {
+        font-size: 14px;
+    }
+}
+
+.onoff-options > form {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.setting-row {
+    border-bottom: 1px solid #e1e8ed;
+    display: inline-block;
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+    width: 100%;
+}
+
+.onoff-options .setting-row > span {
+    font-size: 14px;
+    width: 100%;
+    font-weight: 500;
+    color: #3c3c3c;
+}
+.setting-row > span {
+    font-size: 13px;
+    line-height: initial;
+    text-align: left;
+    text-transform: capitalize;
+    width: 76%;
+}
+
+.onoff-options .setting-row > p {
+    color: #6b6b6b;
+    float: left;
+    font-size: 13px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.setting-row input {
+    float: right;
+    width: 17x;
+    height: 17px;
+    cursor: pointer;
+    margin-right: 3rem;
+    position: relative;
+    top: .5rem;
+    font-size: larger;
+}
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.setting-row > span, .setting-row > label {
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+.onoff-options .setting-row > label {
+    background: #088dcd;
+    float: right;
+    margin-right: 0;
+}
+.setting-row input + label {
+    background-color: #bbbbbb;
+    background-image: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1em;
+    height: 20px;
+    line-height: 1;
+    padding: 0.16667rem;
+    position: relative;
+    text-align: center;
+    transition: all 0.1s ease-in-out 0s;
+    width: 52px;
+}
+.setting-row > label {
+    margin-bottom: 0;
+}
+
+.setting-row input:checked + label::before {
+    color: #fff;
+    content: attr(data-on-label);
+    left: 0.21667rem;
+    right: auto;
+}
+
+.setting-row input + label::before {
+    color: #fff;
+}
+.setting-row input + label::before {
+    color: #b7b7b7;
+    content: attr(data-off-label);
+    display: block;
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 13px;
+    margin: 0.21667rem;
+    min-width: 20px;
+    overflow: hidden;
+    position: absolute;
+    right: 0.21667rem;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0;
+    transition: all 0.1s ease-in-out 0s;
+}
+.setting-row input:checked + label::after {
+    background-color: #f7f7f7;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.3);
+    left: 2.16667rem;
+}
+
+.setting-row input + label::after {
+    background-color: #f7f7f7;
+    border-radius: 0px;
+    box-shadow: none;
+    content: "";
+    height: 14px;
+    left: 0.267rem;
+    top: 3px;
+    position: absolute;
+    transition: all 0.1s ease-in-out 0s;
+    width: 14px;
+}
+
+.submit-btns {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+}
+[type="submit"], button, html [type="button"] {
+    cursor: pointer;
+}
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: button;
+}
+
+@media screen and (max-width: 640px){
+    .mtr-btn {
+        padding: 5px 20px;
+    }
+}
+
+.mtr-btn {
+    position: relative;
+    background: currentColor;
+    border: 1px solid currentColor;
+    font-size: 16px;
+    color: #4f93ce;
+    margin-top: 10px;
+    padding: 7px 30px;
+    cursor: pointer;
+    -webkit-transition: background-color .28s ease,color .28s ease,-webkit-box-shadow .28s ease;
+    transition: background-color .28s ease,color .28s ease,-webkit-box-shadow .28s ease;
+    transition: background-color .28s ease,color .28s ease,box-shadow .28s ease;
+    transition: background-color .28s ease,color .28s ease,box-shadow .28s ease,-webkit-box-shadow .28s ease;
+    overflow: hidden;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.mtr-btn::before {
+    content: '';
+    position: absolute;
+    background: #071017;
+    border: 50vh solid #1d4567;
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    display: block;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    opacity: 1;
+    -webkit-transform: translate(-50%,-50%) scale(0);
+    transform: translate(-50%,-50%) scale(0);
+}
+
+.mtr-btn span {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.logout-p{
+    a{
+        color: #088dcd;
+    }
+}
+
+

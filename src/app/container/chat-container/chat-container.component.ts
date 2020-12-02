@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Chat } from './chat-list/chat.model';
 import { ChatService } from './chat.service'
@@ -26,6 +26,11 @@ export class ChatContainerComponent implements OnInit, OnDestroy {
         console.log(this.currentChat)
       }
     })
+  }
+
+  backToList(){
+    console.log('miskata')
+    this.chatOpened = false
   }
 
   ngOnDestroy(){

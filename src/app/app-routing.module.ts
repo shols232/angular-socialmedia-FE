@@ -10,6 +10,7 @@ import { PostListComponent } from './container/post/post-list/post-list.componen
 import { PostDetailComponent } from './container/post-page/post-detail/post-detail.component';
 import { CommentComponent } from './container/post/comment/comment.component';
 import { EditProfileGuardService } from './container/profile/edit-user-profile/edit-profile-guard.service'
+import { SettingsPageComponent } from './container/settings-page/settings-page.component';
 
 const routes: Routes = [
   { path: '', component: PostPageComponent, canActivate:[AuthGuardService, ], 
@@ -20,9 +21,10 @@ const routes: Routes = [
   ]},
   {path: 'profile/:username', component: UserProfileComponent, canActivate:[AuthGuardService, ], children: []},
   {path: 'profile/:username/edit', component: EditUserProfileComponent, canActivate:[
-    AuthGuardService, EditProfileGuardService ]},
+    AuthGuardService, EditProfileGuardService]},
   {path: 'auth', component: AuthComponent},
-  {path: 'chats', component: ChatContainerComponent}
+  {path: 'chats', component: ChatContainerComponent, canActivate:[AuthGuardService, ]},
+  {path: 'settings', component: SettingsPageComponent, canActivate:[AuthGuardService, ]}
 ]
 
 @NgModule({

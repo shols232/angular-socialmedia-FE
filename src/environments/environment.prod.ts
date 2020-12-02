@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  backendUrl: 'https://vhoid-be.herokuapp.com'
+  backendUrl: 'https://vhoid-be.herokuapp.com',
+  webSocketUrl: 'vhoid-be.herokuapp.com'
 };

@@ -19,6 +19,9 @@ export class PostListComponent implements OnInit {
         this.posts.push(...data.body)
       }) 
     }
+    this.postService.newPostSubject.subscribe(post => {
+      this.posts.unshift(post)
+    })
   }
 
 }

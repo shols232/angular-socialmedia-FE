@@ -9,6 +9,13 @@
     overflow: hidden;
     position: relative;
   }
+  @media screen and (max-width: 650px) {
+    #sidepanel{
+      max-width: none !important;
+      float: none;
+      width: 100%;
+    }
+  }
     #sidepanel #profile {
     width: 80%;
     margin: 25px auto;
@@ -275,11 +282,7 @@
       cursor: pointer;
     }
   }
-  @media screen and (max-width: 735px) {
-      #sidepanel #contacts ul li.contact {
-      padding: 6px 0 40px 8px;
-    }
-  }
+
     #sidepanel #contacts ul li.contact:hover {
     background: #32465a;
   }
@@ -371,12 +374,12 @@
     #sidepanel #bottom-bar button:nth-child(1) {
     border-right: 1px solid #2c3e50;
   }
-  @media screen and (max-width: 735px) {
-      #sidepanel #bottom-bar button:nth-child(1) {
-      border-right: none;
-      border-bottom: 1px solid #2c3e50;
-    }
-  }
+  // @media screen and (max-width: 735px) {
+  //     #sidepanel #bottom-bar button:nth-child(1) {
+  //     border-right: none;
+  //     border-bottom: 1px solid #2c3e50;
+  //   }
+  // }
     #sidepanel #bottom-bar button:hover {
     background: #435f7a;
   }
@@ -384,16 +387,16 @@
     margin-right: 3px;
     font-size: 1em;
   }
-  @media screen and (max-width: 735px) {
-      #sidepanel #bottom-bar button i {
-      font-size: 1.3em;
-    }
-  }
-  @media screen and (max-width: 735px) {
-    #sidepanel #bottom-bar button span {
-      display: none;
-    }
-  }
+  // @media screen and (max-width: 735px) {
+  //     #sidepanel #bottom-bar button i {
+  //     font-size: 1.3em;
+  //   }
+  // }
+  // @media screen and (max-width: 735px) {
+  //   #sidepanel #bottom-bar button span {
+  //     display: none;
+  //   }
+  // }
 
   // modal
 
@@ -561,4 +564,25 @@ a.add-butn {
 .chatlist-modal-body{
   overflow-y: scroll;
   max-height: 60vh;
+}
+
+@media screen and (max-width: 850px) {
+  #contacts{
+    height: 62vh !important;
+  }
+  #bottom-bar{
+    position: revert !important;
+  }
+} 
+
+@media screen and (max-width: 475px) {
+  #contacts{
+    height: 66vh !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #contacts{
+    height: 68vh !important;
+  }
 }

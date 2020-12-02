@@ -4,7 +4,7 @@
     <ul *ngIf="followers.length > 0" id="people-list" class="friendz-list ps-container ps-theme-default ps-active-y">
         <li *ngFor="let follower of followers">
             <figure>
-                <img [routerLink]="['/profile', follower.user.username]" [src]="'http://127.0.0.1:8000'+follower.user.image_url" alt="">
+                <img [routerLink]="['/profile', follower.user.username]" [src]="follower.user.image_url" alt="">
                 <span class="status f-online"></span>
             </figure>
             <div class="friendz-meta">

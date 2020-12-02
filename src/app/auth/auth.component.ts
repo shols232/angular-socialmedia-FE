@@ -13,10 +13,11 @@ export class AuthComponent implements OnInit {
   @ViewChild('container') contDiv: ElementRef;
   @ViewChild('signUpForm') signUpForm: NgForm;
   @ViewChild('signInForm') signInForm: NgForm;
+  isLoading = false;
   constructor(
     private authService: AuthService, 
     private renderer: Renderer2, 
-    private router: Router,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -35,6 +36,7 @@ export class AuthComponent implements OnInit {
   }
 
   logIn(form: NgForm){
+    this.isLoading = true
     const username = form.value.username
     const password = form.value.password
     this.authService.logIn(username, password).subscribe(resData => {
@@ -42,11 +44,13 @@ export class AuthComponent implements OnInit {
       this.router.navigate(['/'])
     }, errors => {
       console.log(errors)
+      this.isLoading = false
     })
     console.log(form.value)
   }
 
   signUp(form: NgForm){
+    this.isLoading = true
     const username = form.value.username
     const password = form.value.password
     const first_name = form.value.first_name
@@ -56,6 +60,7 @@ export class AuthComponent implements OnInit {
       console.log(resData)
       this.router.navigate(['/'])
     }, error => {
+      this.isLoading = false
       console.log(error)
     })
     console.log(form.value)

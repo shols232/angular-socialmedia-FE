@@ -10,7 +10,7 @@
         margin-bottom: 2rem;
     }
     li:first-child{
-        margin-bottom: 0.6rem;
+        margin-bottom: 0;
     }
     .logo img{
         width: 4.4em !important;
@@ -27,6 +27,21 @@
     font-size: 2em !important;
     padding: 7px;
 }
+@media screen and (max-width: 475px) {
+   .side-item i {
+    font-size: 1.5em !important;
+    padding: 3px;
+   } 
+   .bottom-navbar{
+    height: 8vh !important;
+    padding: 5px;
+    }
+    body{
+        padding-bottom: 8vh;
+    }
+}
+
+
 .side-item i:hover {
     border: solid 2px #088dcd !important;
     border-radius: 50%;
@@ -41,3 +56,53 @@
     height: 100vh;
     background-color: #fff;
 }
+
+// 835px width
+
+@media screen and (max-width: 845px) {
+    .bottom-navbar{
+        display: block !important;
+    }
+    body{
+        padding-bottom: 11vh;
+    }
+    .side-bar{
+        display: none;
+    }
+  }
+
+.bottom-navbar{
+    display: none;
+    background-color: rgb(244, 242, 242);
+    overflow: hidden;
+    position: fixed;
+    height: 11vh;
+    padding: 7px 0 0 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10000;
+    
+}
+
+.bottom-nav-ul{
+    display: grid;
+    width: 100%;
+    list-style: none;
+    grid-column: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: column;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 375px) {
+    .side-item i {
+     font-size: 1.1em !important;
+     padding: 2.9px;
+    } 
+    .bottom-navbar{
+        height: 5.5vh !important;
+        padding: 3px 0;
+    }
+    body{
+        padding-bottom: 5.5vh;
+    }
+ }

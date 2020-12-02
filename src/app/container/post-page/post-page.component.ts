@@ -1,11 +1,12 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
-import { Post } from '../post-shared/post.model';
+import { Post, PostContent } from '../post-shared/post.model';
 import { PostService } from '../post-shared/post.service'
 import { UsersSearchService } from '../app-shared/user-query.service'
 import { CommentService } from 'src/app/container/post/comment/comment.service'
 import { PostReact } from '../post-shared/post-react.service';
 import { User } from 'src/app/auth/user.model';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-post-page',
@@ -15,6 +16,7 @@ import { User } from 'src/app/auth/user.model';
 })
 export class PostPageComponent implements OnInit {
   selectedFile: File;
+  currUser: User;
   userItems : User[] = []
   hashItems = []
   content: any;
@@ -24,11 +26,13 @@ export class PostPageComponent implements OnInit {
 
   constructor(
     private postService: PostService, 
+    private authService: AuthService,
     private usersQuery: UsersSearchService, 
     private renderer: Renderer2
     ) { }
 
   ngOnInit(): void {
+    this.currUser = this.authService.user.getValue()
   }
 
   onFileChanged(event){
@@ -43,10 +47,13 @@ export class PostPageComponent implements OnInit {
     if (this.selectedFile){
       post.image_content = this.selectedFile
     }
-    console.log(formData,'ll', formData, post)
-    this.postService.createPost(post)
-    this.contentEditableControl.reset()
-    console.log(formData, this.contentEditableControl.value)
+    this.postService.createPost(post).subscribe(data => {
+      if(data.id){
+        this.contentEditableControl.reset()
+        this.postService.newPost(data)
+        console.log(data)
+      }
+    })
   }
 
   mentionConfig(): any{

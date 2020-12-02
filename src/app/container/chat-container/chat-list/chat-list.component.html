@@ -1,7 +1,7 @@
 <div id="sidepanel">
     <div id="profile">
         <div class="wrap">
-            <img id="profile-img" [src]="image_base_url + user.profile_picture" class="online" alt="user" />
+            <img id="profile-img" [src]="user.profile_picture" class="online" alt="user" />
             <p>{{user.last_name}} {{user.first_name}}</p>
             <div id="status-options">
                 <ul>
@@ -21,16 +21,16 @@
             </div>
         </div>
     </div>
-    <div id="search">
+    <!-- <div id="search">
         <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
         <input type="text" placeholder="Search contacts..." />
-    </div>
+    </div> -->
     <div id="contacts">
         <ul id="contacts-ul">
             <li class="contact active" (click)="onOpenChat(chat)" *ngFor="let chat of chats">
                 <div class="wrap">
                     <span class="contact-status busy"></span>
-                    <img class="chatImg" [src]="image_base_url + chat.user.image_url" [alt]="chat.user.username" />
+                    <img class="chatImg" [src]="chat.user.image_url" [alt]="chat.user.username" />
                     <div class="meta">
                         <p class="name">{{chat.user.last_name}} {{chat.user.first_name}}</p>
                         <div class="preview" >

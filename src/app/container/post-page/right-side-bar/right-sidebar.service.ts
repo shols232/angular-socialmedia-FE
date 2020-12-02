@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Followers } from './right-side-bar.component'
+import { environment } from 'src/environments/environment'
 
 
 @Injectable()
@@ -10,7 +11,7 @@ export class userFollowingService{
 
     usersQuery(){
         return this.http
-        .get<Followers[]>('http://127.0.0.1:8000/account/following')
+        .get<Followers[]>(environment.backendUrl + '/account/following')
     }
 
 }

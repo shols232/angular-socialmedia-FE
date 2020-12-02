@@ -21,6 +21,6 @@ export class Profile{
         public work_exp: number){}
 
         public get full_image_url() : string {
-            return 'http://127.0.0.1:8000' + this.image
+            return this.image
         }
 }

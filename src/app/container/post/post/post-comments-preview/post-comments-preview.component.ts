@@ -11,7 +11,7 @@ export class PostCommentsPreviewComponent implements OnInit {
   @Input() comment : Comment;
   @Input() comments_count: number;
   @Input() post_id: number;
-  bUrl = 'http://127.0.0.1:8000'
+  bUrl = 'https://vhoid.s3.us-east-2.amazonaws.com'
   constructor() { }
 
   ngOnInit(): void {

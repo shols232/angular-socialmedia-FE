@@ -30,6 +30,8 @@ import { ProfileLatestPostsListComponent } from './container/profile/user-profil
 import 'boxicons';
 import { LeftSideBarComponent } from './container/post-page/left-side-bar/left-side-bar.component'
 import { ContenteditableModule } from '@ng-stack/contenteditable';
+import { LoaderComponent } from './container/app-shared/loader/loader.component';
+import { SettingsPageComponent } from './container/settings-page/settings-page.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ContenteditableModule } from '@ng-stack/contenteditable';
     PostCommentsPreviewComponent,
     CommentListComponent,
     ProfileLatestPostsListComponent,
-    LeftSideBarComponent
+    LeftSideBarComponent,
+    LoaderComponent,
+    SettingsPageComponent
   ],
   imports: [
     BrowserModule,

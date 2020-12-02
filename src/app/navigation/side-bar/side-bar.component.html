@@ -1,4 +1,4 @@
-<div class="justify-content-center side-bar p-0">
+<div class="justify-content-center side-bar col-12 p-0">
   <div class="text-center">
     <ul class="side-table">
       <li>
@@ -13,44 +13,73 @@
       </li>
       <li>
         <a class="side-item" title="messages" 
-        [routerLink]="['/chats']"
-        >
-        <!-- <img 
-          src='assets/logos/chat-regular-24.png' width="100"   alt="notif"> -->
+        [routerLink]="['/chats']">
           <i class='bx bx-chat' style='color:#088dcd' ></i>
         </a>
       </li>
       <li class="">
         <a id="dropdown-notifications" title="notifications"  data-toggle="modal" data-target="#notifModal" 
         class="side-item notifications-icon">
-        <!-- <img 
-          src='assets/logos/bell-regular-24.png'  alt="notif"> -->
           <i class='bx bx-bell' style='color:#088dcd' ></i>
         </a>
-        <!-- <span class="notif-num">{{ request.user|unread_notifs }}</span> -->
-        <!-- <span class="notif-num">3</span> -->
       </li>
       <li>
         <a class="side-item" title="profile"  [routerLink]="['/profile', user.username]">
-          <!-- <img 
-          src="assets/logos/user-regular-24.png" width="40" alt="notif"> -->
           <i class='bx bx-user' style='color:#088dcd' ></i>
         </a>
       </li>
       <li>
         <a class="side-item" title="settings" >
-          <!-- <img 
-          src="assets/logos/cog-regular-24.png" width="40"   alt="notif"> -->
           <i class='bx bx-cog' style='color:#088dcd' ></i>
         </a>
       </li>
       <li>
         <a class="side-item" title="new post"  data-toggle='modal' data-target='#postModal'>
-          <!-- <img 
-          src="assets/logos/paper-plane-regular-24.png"  width="40" alt="message"> -->
           <i class='bx bx-paper-plane' style='color:#088dcd' ></i>
         </a>
       </li>
     </ul>
   </div>
+</div>
+
+<div class="bottom-navbar">
+  <ul class="bottom-nav-ul p-0">
+    <li>
+      <a class="side-item" title="home" routerLink="/">
+        <i class='bx bx-home-circle' style='color:#088dcd'  ></i>
+      </a>
+    </li>
+    <li>
+      <a class="side-item" title="messages" 
+      [routerLink]="['/chats']">
+        <i class='bx bx-chat' style='color:#088dcd' ></i>
+      </a>
+    </li>
+    <li class="">
+      <a id="dropdown-notifications" title="notifications"  data-toggle="modal" data-target="#notifModal" 
+      class="side-item notifications-icon">
+        <i class='bx bx-bell' style='color:#088dcd' ></i>
+      </a>
+    </li>
+    <li>
+      <a class="side-item" routerLink="/">
+        <img src='assets/logos/void.png' alt="Void"  width="40">
+        </a>
+      </li>
+    <li>
+      <a class="side-item" title="profile"  [routerLink]="['/profile', user.username]">
+        <i class='bx bx-user' style='color:#088dcd' ></i>
+      </a>
+    </li>
+    <li>
+      <a class="side-item" title="settings" >
+        <i class='bx bx-cog' style='color:#088dcd' ></i>
+      </a>
+    </li>
+    <li>
+      <a class="side-item" title="new post"  data-toggle='modal' data-target='#postModal'>
+        <i class='bx bx-paper-plane' style='color:#088dcd' ></i>
+      </a>
+    </li>
+  </ul>
 </div>

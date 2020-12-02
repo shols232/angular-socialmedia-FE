@@ -5,27 +5,7 @@ body
     padding: 0;
     font-family: 'Lato', 'sans-serif';
     }
-// .profile 
-// {
-//     min-height: 355px;
-//     /* display: inline-block; */
 
-//     margin:0 auto;
-//     }
-figcaption.ratings
-{
-    margin-top:20px;
-    }
-figcaption.ratings a
-{
-    color:#f1c40f;
-    font-size:11px;
-    }
-figcaption.ratings a:hover
-{
-    color:#f39c12;
-    text-decoration:none;
-    }
 .divider 
 {
     border-top:1px solid rgba(0,0,0,0.1);
@@ -110,4 +90,57 @@ span.tags
 
 .btn-indigo{
     background-color: rgba(172, 124, 206, 0.75);
+}
+
+
+
+@media screen and (max-width: 500px){
+    .info-box{
+        h2{
+            font-size: 22px;
+        }
+        .btn > span{
+            display: none;
+        }
+    }
+
+    .top-cont{
+        h2 > span{
+            font-size: 0.9rem;
+        }
+
+        p{
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
+        figure img{
+            width: 100px;
+            height: 100px;
+            float: right;
+        }
+    }
+
+    .img-cont{
+    }
+}
+
+@media screen and (max-width: 380px){
+    .info-box{
+        h2{
+            font-size: 17.5px;
+            margin-bottom: 0;
+        }
+        p{
+            margin-bottom: 5px;
+        }
+        .btn{
+            font-size: 10.5px;
+            padding: 5px;
+        }
+    }
+    .bottom-tabs{
+        div{
+            font-size: 12px;
+        }
+    }
 }

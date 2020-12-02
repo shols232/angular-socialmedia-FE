@@ -1,10 +1,14 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, 
+  OnDestroy, OnInit, Output, QueryList, 
+  Renderer2, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { User } from 'src/app/auth/user.model';
 import { AuthService } from 'src/app/auth/auth.service'
 import ReconnectingWebSocket from 'reconnecting-websocket';
 import { ActivatedRoute } from '@angular/router';
 import { ChatService } from '../chat.service';
 import { Chat } from '../chat-list/chat.model';
+import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 export interface Message{
     sender_username:string, 
@@ -15,20 +19,22 @@ export interface Message{
 @Component({
   selector: 'app-chat-message',
   templateUrl: './chat-message.component.html',
-  styleUrls: ['./chat-message.component.scss']
+  styleUrls: ['./chat-message.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class ChatMessageComponent implements OnInit, AfterViewInit {
+export class ChatMessageComponent implements OnInit, AfterViewInit, OnDestroy {
   user: User
   messages: Message[] = [];
   users = []
   rcWebsocket: ReconnectingWebSocket;
   @Input() chat: Chat; 
+  @Output('backToList') toChatList: Subject<void> = new Subject<void>()
   @ViewChildren('messages') messagesEl: QueryList<any>;
   @ViewChild('content') content: ElementRef;
   msgContent: string = ''
 
-  baseWSocketUrl = '127.0.0.1:8000'
-  baseImgUrl = 'http://127.0.0.1:8000'
+  baseWSocketUrl = environment.webSocketUrl
+  baseImgUrl = environment.webSocketUrl
 
   constructor(
     private userService: AuthService,
@@ -100,11 +106,22 @@ export class ChatMessageComponent implements OnInit, AfterViewInit {
     })
   }
 
+  backToList(): void{
+    this.toChatList.next(null)
+  }
+
   scrollToBottom = () => {
     console.log('aliu')
     try {
       this.content.nativeElement.scrollTop = this.content.nativeElement.scrollHeight;
     } catch (err) {}
+  }
+
+  ngOnDestroy(): void {
+    this.rcWebsocket.removeEventListener('message', ()=>{
+      console.log('Stooooooped')
+    })
+    this.rcWebsocket.close()
   }
 
 }

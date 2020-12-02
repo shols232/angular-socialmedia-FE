@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { userFollowingService } from './right-sidebar.service'
 
 export class Followers{
-  bUrl = 'http://127.0.0.1:8000'
+  bUrl = environment.backendUrl
   constructor(
     public user:{
     username:string,
@@ -16,8 +17,7 @@ export class Followers{
 
   
   public get image_url() : string {
-    console.log('http://127.0.0.1:8000' + this.user.image_url)
-    return 'http://127.0.0.1:8000' + this.user.image_url
+    return this.user.image_url
   }
   
 }

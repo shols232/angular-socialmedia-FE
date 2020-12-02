@@ -1,36 +1,31 @@
 <div class="row m-0">
-    <div class="col-1 p-0">
-        <app-side-bar></app-side-bar>
-    </div>
-    <div class="col-11">
+    <app-side-bar></app-side-bar>
+    <div class="col">
         <div class="row">
             <div *ngIf="profile" style="background-color: #F5F5F5;" class="col-md-offset-2 mx-auto col-md-10 col-sm-12">
                 <div class="row">
-                    <div class="col-10 m-0 mt-2">
+                    <div class="col-10 mx-auto m-0 mt-2">
                         <div class="row">
-                            <div class="col-sm-12" style="display: flex;">
-                                <div class="col-sm-12 col-md-8">
+                            <div class="col-sm-12 top-cont p-0" style="display: flex;">
+                                <div class="col-md-9 p-0">
                                     <h2><span>{{profile.first_name}} {{ profile.last_name }}</span></h2>
                                     <p>Bio: <span>{{ profile.bio ? profile.bio : '' }}</span></p>
-                                    <p>Hobbies: {{profile.work_exp}}</p>
+                                    <!-- <p>Hobbies: {{profile.work_exp}}</p> -->
                                     <p>Address: <span>{{profile.address ? profile.address + ', ' : ''}} {{
                                             profile.state ? profile.state + ', ' : ''}}{{
                                             profile.country ? profile.country : '' + '.'}}</span>
                                     </p>
                                     <p><strong>Date of birth: </strong> {{profile.date_of_birth|date}} </p>
                                 </div>
-                                <div class="col-sm-12 col-md-4 text-center">
+                                <div class="col-md-3 p-0 img-cont text-center">
                                     <figure>
                                         <img [src]="profile.image" width="150" height="150" alt=""
                                             class="image-circle img-circle">
-                                        <div class="image-text-box">
-                                            <p>@{{profile.username}}</p>
-                                        </div>
                                     </figure>
                                 </div>
                             </div>
-                            <div class="col-sm-12 divider text-center">
-                                <div class="col-sm-12 col-md-4 mt-2">
+                            <div class="col-sm-12 p-0 divider info-box text-center">
+                                <div class="col-sm-4 mt-2">
                                     <h2><strong><span #followEl class="follow-count-span">{{profile.followers}}</span></strong></h2>
                                     <p><small>Followers</small></p>
                                         <button *ngIf="!owner" id="follow-btn btn-primary"
@@ -41,13 +36,13 @@
                                             {{ follows ? 'Unfollow' : 'Follow'}}
                                         </button>
                                 </div>
-                                <div class="col-sm-12 col-md-4 mt-2">
+                                <div class="col-sm-4 mt-2">
                                     <h2><strong>{{profile.following}}</strong></h2>
                                     <p><small>Following</small></p>
                                     <button *ngIf="owner" class="btn btn-info m-0" (click)="onMessageUser()"><span
                                     class="fa fa-user"></span> Message</button>
                                 </div>
-                                <div class="col-sm-12 col-md-4 mt-2">
+                                <div class="col-sm-4 mt-2">
                                     <h2><strong>{{profile.post_counts}}</strong></h2>
                                     <p><small>Posts</small></p>
                                     <div *ngIf="owner" class="btn-group">
@@ -57,19 +52,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 text-center divider mt-4">
+                        <div class="col-sm-12 p-0 text-center bottom-tabs divider mt-4">
                             <div [ngClass]="{'emphasis-active': this.currLocation=='posts'}"
-                            class="col-sm-4 emphasis">
+                            class="col-sm-6 emphasis">
                                 <a (click)="toggleBottomDiv('posts')">Posts</a></div>
-                            <div [ngClass]="{'emphasis-active': this.currLocation=='mentions'}"
-                            class="col-sm-4 emphasis">
-                                <a (click)="toggleBottomDiv('mentions')">Mentions</a></div>
                             <div [ngClass]="{'emphasis-active': this.currLocation=='images'}"
-                            class="col-sm-4 emphasis">
-                                <a (click)="toggleBottomDiv('images')">Images & Videos</a></div>
+                            class="col-sm-6 emphasis">
+                                <a (click)="toggleBottomDiv('images')">Images</a></div>
                         </div>
                         <div class="row">
-                            <div class="col-12 mt-3">
+                            <div class="col-12 p-0 mt-3">
                                 <app-profile-latest-posts-list *ngIf="this.currLocation=='posts'"></app-profile-latest-posts-list>
                             </div>
                         </div>

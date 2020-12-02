@@ -1,12 +1,10 @@
 <div class="row m-0">
-    <div class="col-1 p-0">
-        <app-side-bar></app-side-bar>
-    </div>
-    <div class="col-11">
+    <app-side-bar></app-side-bar>
+    <div class="col">
     <div class="row">
         <div class="col-lg-2">
         </div>
-        <div class="col-sm-12 col-lg-7 col-md-8 right">
+        <div class="col-sm-12 col-lg-7 col-md-8 p-0 m-0 right">
             <div class="central-meta new-pst item" style="display: inline-block;">
                 <div class="new-postbox">
                     <figure>
@@ -38,22 +36,10 @@
                                     <li>
                                         <input type="file" style="display:none" 
                                         (change)="onFileChanged($event)" #fileInput>
-                                        <i class="fa fa-image" (click)="fileInput.click()" ></i>
+                                        <i class="fa fa-image mr-3" (click)="fileInput.click()" ></i>
                                         <!-- <label class="fileContainer">
                                             <input type="file">
                                         </label> -->
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-video"></i>
-                                        <label class="fileContainer">
-                                            <input type="file">
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-camera"></i>
-                                        <label class="fileContainer">
-                                            <input type="file">
-                                        </label>
                                     </li>
                                     <li>
                                         <button type="submit">Post</button>

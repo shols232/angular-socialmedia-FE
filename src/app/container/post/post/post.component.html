@@ -1,7 +1,7 @@
     <section class="hero" id="card">
         <div class="container">
             <div class="row">
-                <div class="col-10 m-0 mx-auto">
+                <div class="col-sm-12 col-md-10 m-0 p-0 mx-auto">
                 <div class="cardbox shadow-lg bg-white">
                 <div class="cardbox-heading">
                 <!-- START dropdown-->
@@ -17,7 +17,7 @@
                 </div><!--/ dropdown -->
                 <div class="media m-0">
                     <div class="d-flex mr-3">
-                    <a style="cursor:pointer"><img class="img-fluid rounded-circle" [src]="baseImgUrl + post.author_pic" alt="User"></a>
+                    <a style="cursor:pointer"><img class="img-fluid rounded-circle" [src]="post.author_pic" alt="User"></a>
                     </div>
                     <div class="media-body">
                     <p class="m-0"><a style="color:#5DA1D9"
@@ -31,9 +31,9 @@
                 </div><!--/ media -->
                 </div><!--/ cardbox-heading -->
                     <div class="cardbox-item">
-                        <img *ngIf="post.image_content" class="img-fluid" [src]="post.image_content" alt="Image">
+                        <img *ngIf="post.image_content" class="post-img" [src]="post.image_content" alt="Image">
                         <div *ngIf="post.image_content" class="mt-1 mb-1" style="border-bottom: 2px solid #f4f4f4;"></div>
-                        <p class="cardbox-item-p" [innerHTML]="post.content"
+                        <p *ngIf="post.content" class="cardbox-item-p" [innerHTML]="post.content"
                         style="margin:0 auto; width:80%; overflow-wrap: break-word;"></p>
                         <!-- <div class="cardbox mr-3 cardbox-echo bg-white mt-1">
                             <span class="echoed mt-3 mr-3"><img height="30" width="30" src="{% static 'icons/echo_48.png' %}" alt=""></span>
@@ -68,7 +68,7 @@
                         <li class="comments-count"><a><em>{{post.comments_count}}</em></a></li>
                         <li class="comment-imgs" *ngFor="let url of post.first_three_pics"><img
                             height="18" width="18" 
-                            [src]="baseImgUrl + url" class="rounded-circle" alt="user"></li>
+                            [src]="url" class="rounded-circle" alt="user"></li>
                         <li>
                             <a href="" data-toggle="modal" data-target="#modalLoginAvatar">
                                 <i class='ml-4 bx bxs-chevrons-right' ></i>
@@ -99,7 +99,7 @@
                     <div class="cardbox-comments">
                         <span class="comment-avatar float-left">
                             <a href=""><img class="rounded-circle"
-                                [src]="baseImgUrl + user.profile_picture" alt=""></a>                            
+                                [src]="user.profile_picture" alt=""></a>                            
                         </span>
                         <div class="search">
                             <input #commentInp placeholder="Write a comment" type="text">

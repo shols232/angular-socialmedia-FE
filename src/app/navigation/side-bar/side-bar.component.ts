@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user.model';
 import 'boxicons'
@@ -7,7 +7,8 @@ import 'boxicons'
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss', 
-  '../../../../node_modules/boxicons/css/boxicons.min.css']
+  '../../../../node_modules/boxicons/css/boxicons.min.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class SideBarComponent implements OnInit {
   user: User

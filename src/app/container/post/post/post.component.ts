@@ -25,7 +25,6 @@ export class PostComponent implements OnInit {
   comment: Comment
   liked: boolean = false;
   loved: boolean = false;
-  baseImgUrl = 'http://127.0.0.1:8000'
 
   constructor(private postReactService: PostReact, 
     private renderer: Renderer2, 
@@ -79,10 +78,12 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     console.log(this.post)
     this.liked = this.post.likes_post
     this.loved = this.post.loves_post
     this.user = this.authService.user.getValue()
+    console.log('11', this.user)
     this.commentService.getComment(this.post.id).subscribe(comment => {
       if(comment.author.username != ''){
         this.comment = comment

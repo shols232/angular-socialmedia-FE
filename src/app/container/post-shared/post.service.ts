@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core'
 import { Post, PostContent } from './post.model';
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment'
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({providedIn:'root'})
 export class PostService{
     private baseUrl = environment.backendUrl
     private posts: Post[];
+    newPostSubject: Subject<PostContent> = new Subject<PostContent>()
 
     constructor(private http: HttpClient){}
     
@@ -18,11 +20,8 @@ export class PostService{
         if(post.image_content){
             form.append('image_content', post.image_content)
         }
-        this.http
-        .post(urlPath, form)
-        .subscribe(data => {
-            console.log(data)
-        })
+        return this.http
+        .post<PostContent>(urlPath, form)
     }
 
     getPosts(){
@@ -43,5 +42,10 @@ export class PostService{
         const urlPath = this.baseUrl + '/post/feed'
         return this.http
         .get<PostContent[]>(urlPath)
+    }
+
+
+    newPost(post: PostContent){
+        this.newPostSubject.next(post)
     }
 }
