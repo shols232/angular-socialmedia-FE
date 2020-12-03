@@ -1,7 +1,7 @@
 <div class="row m-0 p-0">
     <app-side-bar></app-side-bar>
     <div class="col-md-8 mx-auto col-sm-12 m-0 p-0">
-        <app-error-msg [success]="true" [error_msg]="alert_msg"></app-error-msg>
+        <app-error-msg *ngIf="alert_box_opened" (closed)="toggleAlert()" [success]="true" [error_msg]="alert_msg"></app-error-msg>
         <div class="central-meta">
             <div class="onoff-options">
                 <h5 class="f-title"
@@ -10,12 +10,12 @@
                 <form (ngSubmit)="onSubmit(f)" #f=ngForm>
                     <div class="setting-row">
                         <span>Enable follow me</span>
-                        <p>If checked, anybody is able to follow you</p>
+                        <p>If checked, everyone is able to follow you</p>
                         <input [checked]="enable_follow_me" [(ngModel)]="enable_follow_me" name="enable_follow_me" type="checkbox" id="switch01"> 
                     </div>
                     <div class="setting-row">
-                        <span>Allow all users to follow me</span>
-                        <p>If unchecked, only user which you follow can private message you.</p>
+                        <span>Allow everyone to chat me up</span>
+                        <p>If unchecked, only people you follow can start a private chat with you.</p>
                         <input [checked]="enable_message_me" [(ngModel)]="enable_message_me" name="enable_message_me" type="checkbox" id="switch02"> 
                     </div>
                     <div class="setting-row">

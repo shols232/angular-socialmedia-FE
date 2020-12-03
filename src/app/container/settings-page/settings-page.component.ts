@@ -13,6 +13,7 @@ export class SettingsPageComponent implements OnInit {
   enable_follow_me: boolean;
   enable_message_me: boolean;
   enable_tagging: boolean;
+  alert_box_opened = false;
 
   constructor(private settingsService: SettingsService, private router: Router) { }
 
@@ -32,6 +33,10 @@ export class SettingsPageComponent implements OnInit {
           this.alert_msg = 'Your new changes have been successfully implemented!'
         }
       })
+  }
+
+  toggleAlert(){
+    this.alert_box_opened = !this.alert_box_opened
   }
 
 }

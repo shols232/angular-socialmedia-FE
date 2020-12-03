@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-error-msg',
@@ -9,14 +10,14 @@ export class ErrorMsgComponent implements OnInit {
   generic_error = false;
   @Input('success') success = false;
   @Input('error_msg') error_msg = ''
+  @Output('closed') closed: Subject<void> = new Subject<void>()
   constructor() { }
 
   ngOnInit(): void {
   }
 
   clearMsg(){
-    this.error_msg = ''
-    this.generic_error = false
+    this.closed.next()
   }
 
 }

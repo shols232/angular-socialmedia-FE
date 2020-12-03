@@ -13,6 +13,7 @@ import { Chat } from './chat.model'
 export class ChatListComponent implements OnInit {
   user: User;
   error_msg = ''
+  alert_box_opened = false
   users : ChatUser[] = [];
   image_base_url = 'http://127.0.0.1:8000'
   chats: Chat[] = [];
@@ -70,6 +71,10 @@ export class ChatListComponent implements OnInit {
         console.log(data)
       })
     }
+  }
+
+  toggleAlert(){
+    this.alert_box_opened = !this.alert_box_opened
   }
 
 }
