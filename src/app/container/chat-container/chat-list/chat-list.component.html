@@ -1,4 +1,4 @@
-<app-error-msg [error_msg]="error_msg" ></app-error-msg>
+<app-error-msg *ngIf="alert_box_opened"  [error_msg]="error_msg" ></app-error-msg>
 <div id="sidepanel">
     <div id="profile">
         <div class="wrap">

@@ -31,12 +31,11 @@ export class SettingsPageComponent implements OnInit {
       this.enable_message_me, this.enable_tagging).subscribe(data => {
         if(data['status'] == true){
           this.alert_msg = 'Your new changes have been successfully implemented!'
+          setTimeout(()=>{
+            this.router.navigate(['/'])
+          }, 900)
         }
       })
-  }
-
-  toggleAlert(){
-    this.alert_box_opened = !this.alert_box_opened
   }
 
 }

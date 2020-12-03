@@ -33,6 +33,7 @@ import { ContenteditableModule } from '@ng-stack/contenteditable';
 import { LoaderComponent } from './container/app-shared/loader/loader.component';
 import { SettingsPageComponent } from './container/settings-page/settings-page.component';
 import { ErrorMsgComponent } from './container/app-shared/error-msg/error-msg.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ErrorMsgComponent } from './container/app-shared/error-msg/error-msg.co
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     MentionModule,
+    AdsenseModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

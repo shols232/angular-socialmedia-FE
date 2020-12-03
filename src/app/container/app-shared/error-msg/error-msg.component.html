@@ -2,6 +2,7 @@
   <div *ngIf="error_msg || generic_error" class="mt-3 alert alert-{{success ? 'success' : 'info'}} alert-dismissible fade show" role="alert">
     <strong>{{success ? 'hurray!!' : 'Ooops!!'}}</strong> 
     {{generic_error ? 'a problem occurred, please check your internet connection or refresh your browser and try again' : error_msg}}
+    <ng-content #name></ng-content>
     <button type="button" class="close" (click)="clearMsg()" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
