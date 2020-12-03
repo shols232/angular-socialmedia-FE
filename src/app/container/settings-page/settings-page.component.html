@@ -1,33 +1,34 @@
 <div class="row m-0 p-0">
     <app-side-bar></app-side-bar>
     <div class="col-md-8 mx-auto col-sm-12 m-0 p-0">
+        <app-error-msg [success]="true" [error_msg]="alert_msg"></app-error-msg>
         <div class="central-meta">
             <div class="onoff-options">
                 <h5 class="f-title"
                 ><i class='bx bxs-cog' style='color:#088dcd'  ></i>account setting</h5>
                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
-                <form method="post">
+                <form (ngSubmit)="onSubmit(f)" #f=ngForm>
                     <div class="setting-row">
                         <span>Enable follow me</span>
                         <p>Enable this if you want people to follow you</p>
-                        <input type="checkbox" id="switch01"> 
+                        <input [checked]="enable_follow_me" [(ngModel)]="enable_follow_me" name="enable_follow_me" type="checkbox" id="switch01"> 
                         <!-- <label for="switch01" data-on-label="'ON'" data-off-label="'OFF'"></label> -->
                     </div>
                     <div class="setting-row">
-                        <span>Send me notifications</span>
+                        <span>Send me messages</span>
                         <p>Send me notification emails my friends like, share or message me</p>
-                        <input type="checkbox" id="switch02"> 
+                        <input [checked]="enable_message_me" [(ngModel)]="enable_message_me" name="enable_message_me" type="checkbox" id="switch02"> 
                         <!-- <label for="switch02" data-on-label="'ON'" data-off-label="'OFF'"></label> -->
                     </div>
                     <div class="setting-row">
                         <span>Enable tagging</span>
                         <p>Enable my friends to tag me on their posts</p>
-                        <input type="checkbox" id="switch04"> 
+                        <input [checked]="enable_tagging" [(ngModel)]="enable_tagging" name="enable_tagging" type="checkbox" id="switch04"> 
                         <!-- <label for="switch04"  >ON</label> -->
                     </div>
                     <div class="submit-btns">
                         <button type="button" class="mtr-btn"><span>Cancel</span></button>
-                        <button type="button" class="mtr-btn"><span>Update</span></button>
+                        <button type="submit" class="mtr-btn"><span>Update</span></button>
                     </div>
                 </form>
             </div>

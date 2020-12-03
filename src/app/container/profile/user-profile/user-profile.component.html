@@ -1,5 +1,6 @@
 <div class="row m-0">
     <app-side-bar></app-side-bar>
+    <app-error-msg [error_msg]='error_msg' ></app-error-msg>
     <div class="col">
         <div class="row">
             <div *ngIf="profile" style="background-color: #F5F5F5;" class="col-md-offset-2 mx-auto col-md-10 col-sm-12">
@@ -10,7 +11,6 @@
                                 <div class="col-md-9 p-0">
                                     <h2><span>{{profile.first_name}} {{ profile.last_name }}</span></h2>
                                     <p>Bio: <span>{{ profile.bio ? profile.bio : '' }}</span></p>
-                                    <!-- <p>Hobbies: {{profile.work_exp}}</p> -->
                                     <p>Address: <span>{{profile.address ? profile.address + ', ' : ''}} {{
                                             profile.state ? profile.state + ', ' : ''}}{{
                                             profile.country ? profile.country : '' + '.'}}</span>

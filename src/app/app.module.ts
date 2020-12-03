@@ -32,6 +32,7 @@ import { LeftSideBarComponent } from './container/post-page/left-side-bar/left-s
 import { ContenteditableModule } from '@ng-stack/contenteditable';
 import { LoaderComponent } from './container/app-shared/loader/loader.component';
 import { SettingsPageComponent } from './container/settings-page/settings-page.component';
+import { ErrorMsgComponent } from './container/app-shared/error-msg/error-msg.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { SettingsPageComponent } from './container/settings-page/settings-page.c
     ProfileLatestPostsListComponent,
     LeftSideBarComponent,
     LoaderComponent,
-    SettingsPageComponent
+    SettingsPageComponent,
+    ErrorMsgComponent
   ],
   imports: [
     BrowserModule,

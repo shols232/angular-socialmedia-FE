@@ -9,6 +9,7 @@ import { ProfileService } from '../profile.service'
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
+  error_msg = ''
   owner: boolean = false;
   follows: boolean = true;
   currLocation = 'posts'
@@ -41,8 +42,14 @@ export class UserProfileComponent implements OnInit {
             this.renderer.setProperty(followEl, 'innerText', currentCount - 1)
           }
           this.follows = !this.follows
+        }else if (data['status']=='ACTION_CANNOT_BE_PERFORMED'){
+          this.error_msg = 'This user\'s settings configuration doesnt allow for that action to be performed'
         }
     })
+  }
+
+  clearError(){
+    this.error_msg = ''
   }
 
   toggleBottomDiv(loc: string){
