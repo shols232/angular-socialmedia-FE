@@ -20,8 +20,7 @@
                     <a style="cursor:pointer"><img class="img-fluid rounded-circle" [src]="post.author_pic" alt="User"></a>
                     </div>
                     <div class="media-body">
-                    <p class="m-0"><a style="color:#5DA1D9"
-                        href="">
+                    <p class="m-0"><a style="color:#5DA1D9" [routerLink]="['profile', post.username]">
                         {{ post.owner }}
                         </a>
                     </p>

@@ -3,7 +3,7 @@
     position: relative;
     width: 80px;
     height: 80px;
-    z-index: 1000;
+    z-index: 100000000;
     margin-top: 10%;
     // top: 50%;
     left:46%;
@@ -19,7 +19,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background:tomato;
+    background:rgb(250, 102, 76);
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {

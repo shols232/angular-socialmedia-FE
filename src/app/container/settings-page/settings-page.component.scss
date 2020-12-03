@@ -104,8 +104,8 @@ p {
     height: 17px;
     cursor: pointer;
     margin-right: 3rem;
-    position: relative;
-    top: .5rem;
+    position: fixed;
+    margin-top: 2rem;
     font-size: larger;
 }
 input[type=checkbox], input[type=radio] {

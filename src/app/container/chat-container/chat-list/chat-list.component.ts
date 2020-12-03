@@ -12,6 +12,7 @@ import { Chat } from './chat.model'
 })
 export class ChatListComponent implements OnInit {
   user: User;
+  error_msg = ''
   users : ChatUser[] = [];
   image_base_url = 'http://127.0.0.1:8000'
   chats: Chat[] = [];
@@ -45,6 +46,15 @@ export class ChatListComponent implements OnInit {
   onAddChat(user_id: string){
     this.chatService.onAddChat(user_id).subscribe(data => {
       console.log(data)
+      try {
+        if(data['status'] == 'ACTION_CANNOT_BE_PERFORMED'){
+          this.error_msg = `Sorry! but the settings configuration of this user only 
+          allows messages from people they follow`
+          return
+        } 
+      } catch (error) {
+        console.log(error)
+      }
       const currChat = this.chatService.currentChat.getValue()
       this.onOpenChat(data)
       if(currChat != this.chatService.currentChat.getValue()){

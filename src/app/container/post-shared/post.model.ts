@@ -19,5 +19,6 @@ export class PostContent{
     likes_post: boolean;
     loves_post:boolean;
     parent: any;
+    username: string;
     author_pic:string
 }

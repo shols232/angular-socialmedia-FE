@@ -1,3 +1,4 @@
+<app-error-msg [error_msg]="error_msg" ></app-error-msg>
 <div id="sidepanel">
     <div id="profile">
         <div class="wrap">
@@ -76,7 +77,7 @@
                         <div class="nearly-pepls">
                             <figure>
                                 <a [title]="usr.username">
-                                    <img [src]="image_base_url + usr.image_url" alt="">
+                                    <img [src]="usr.image_url">
                                 </a>
                             </figure>
                             <div class="pepl-info">
