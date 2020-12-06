@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import {SettingsService} from './settings.service'
 
 @Component({
@@ -15,7 +16,11 @@ export class SettingsPageComponent implements OnInit {
   enable_tagging: boolean;
   alert_box_opened = false;
 
-  constructor(private settingsService: SettingsService, private router: Router) { }
+  constructor(
+    private settingsService: SettingsService, 
+    private router: Router, 
+    private cookieService: CookieService
+    ) { }
 
   ngOnInit(): void {
     this.settingsService.getSettings().subscribe(data => {
@@ -36,6 +41,11 @@ export class SettingsPageComponent implements OnInit {
           }, 900)
         }
       })
+  }
+
+  logOut(){
+    this.cookieService.delete('user')
+    this.router.navigate(['auth'])
   }
 
 }
