@@ -1,7 +1,7 @@
 <section *ngIf="post" class="hero" id="card">
     <div class="container">
         <div class="row">
-            <div class="col-10 m-0 mx-auto">
+            <div class="col-12 m-0 mx-auto">
             <div class="cardbox shadow-lg bg-white">
             <div class="cardbox-heading">
             <div class="media m-0">
@@ -21,9 +21,8 @@
                 <div class="cardbox-item">
                     <img *ngIf="post.image_content" class="img-fluid" [src]="post.image_content" alt="Image">
                     <div *ngIf="post.image_content" class="mt-1 mb-1" style="border-bottom: 2px solid #f4f4f4;"></div>
-                    <p *ngIf="post.content" class="cardbox-item-p" style="margin:0 auto; width:80%; overflow-wrap: break-word;">
-                        {{post.content}}
-                    </p>
+                    <p *ngIf="post.content" class="cardbox-item-p" [innerHTML]="post.content"
+                    style="margin:0 auto; width:80%; overflow-wrap: break-word;"></p>
                     <!-- <div class="cardbox mr-3 cardbox-echo bg-white mt-1">
                         <span class="echoed mt-3 mr-3"><img height="30" width="30" src="{% static 'icons/echo_48.png' %}" alt=""></span>
                         <div class="cardbox-heading">
