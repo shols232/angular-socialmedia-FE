@@ -1,6 +1,6 @@
 
 <div class="containerDiv" #container>
-	<app-loader *ngIf="isLoading"></app-loader>
+	<!-- <app-loader *ngIf="isLoading"></app-loader> -->
 	<div class="forms-container">
 		<div class="signin-signup">
 			<form (ngSubmit)="logIn(signInForm)" #signInForm="ngForm" class="sign-in-form">
@@ -15,8 +15,8 @@
 					<input ngModel name="password"
 					type="password" placeholder="Password" />
 				</div>
-				<input type="submit" value="Login" class="btn solid" />
-				<p class="social-text">Or Sign in with social platforms</p>
+				<input [disabled]="isLoading" type="submit" value="Login" class="btn solid" />
+				<!-- <p class="social-text">Or Sign in with social platforms</p> -->
 				<!-- <div class="social-media">
 					<a class="social-icon">
 						<i class="fab fa-facebook-f"></i>
@@ -59,8 +59,7 @@
 					<input ngModel name="password"
 					type="password" placeholder="Password" />
 				</div>
-				<input type="submit" class="btn" value="Sign up" />
-				<p class="social-text">Or Sign up with social platforms</p>
+				<input [disabled]="isLoading" type="submit" class="btn" value="Sign up" />
 				<!-- <div class="social-media">
 					<a class="social-icon">
 						<i class="fab fa-facebook-f"></i>
